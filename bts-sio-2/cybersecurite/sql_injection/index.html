@@ -1,0 +1,1286 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>SQL Injection - Institution Saint-Aspais BTS SIO</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sql-injection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Institution Saint-Aspais BTS SIO" class="md-header__button md-logo" aria-label="Institution Saint-Aspais BTS SIO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Institution Saint-Aspais BTS SIO
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SQL Injection
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Institution Saint-Aspais BTS SIO" class="md-nav__button md-logo" aria-label="Institution Saint-Aspais BTS SIO" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Institution Saint-Aspais BTS SIO
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          BTS SIO 1ère année
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BTS SIO 1ère année" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          BTS SIO 1ère année
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bts-sio-1/python/boucles/" class="md-nav__link">
+        Boucles et comparaisons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bts-sio-1/python/chaines/" class="md-nav__link">
+        Plus sur les chaînes de caractères
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bts-sio-1/python/collections/" class="md-nav__link">
+        Dictionnaires, tuples et sets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bts-sio-1/python/fichiers/" class="md-nav__link">
+        Fichiers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bts-sio-1/python/fonction/" class="md-nav__link">
+        Fonctions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bts-sio-1/python/listes/" class="md-nav__link">
+        Listes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bts-sio-1/python/tests/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          BTS SIO 2ième année
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="BTS SIO 2ième année" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          BTS SIO 2ième année
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Cybersécurité
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cybersécurité" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cybersécurité
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentification_principes/" class="md-nav__link">
+        Les principes de l'authentification
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rgpd/" class="md-nav__link">
+        Qu'est-ce que le RGPD ?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SQL Injection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SQL Injection
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quest-ce-que-linjection-sql-sqli" class="md-nav__link">
+    Qu'est-ce que l'injection SQL (SQLi) ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quel-est-limpact-dune-attaque-par-injection-sql-reussie" class="md-nav__link">
+    Quel est l'impact d'une attaque par injection SQL réussie ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemples-dinjection-sql" class="md-nav__link">
+    Exemples d'injection SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemples d'injection SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recuperer-des-donnees-cachees" class="md-nav__link">
+    Récupérer des données cachées
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subversion-de-la-logique-applicative" class="md-nav__link">
+    Subversion de la logique applicative
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recuperer-des-donnees-a-partir-dautres-tables-de-base-de-donnees" class="md-nav__link">
+    Récupérer des données à partir d'autres tables de base de données
+  </a>
+  
+    <nav class="md-nav" aria-label="Récupérer des données à partir d'autres tables de base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attaques-union-par-injection-sql" class="md-nav__link">
+    Attaques UNION par injection SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Attaques UNION par injection SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determination-du-nombre-de-colonnes-requises-dans-une-attaque-union-par-injection-sql" class="md-nav__link">
+    Détermination du nombre de colonnes requises dans une attaque UNION par injection SQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utiliser-une-attaque-union-par-injection-sql-pour-recuperer-des-donnees-interessantes" class="md-nav__link">
+    Utiliser une attaque UNION par injection SQL pour récupérer des données intéressantes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examen-de-la-base-de-donnees-dans-les-attaques-par-injection-sql" class="md-nav__link">
+    Examen de la base de données dans les attaques par injection SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Examen de la base de données dans les attaques par injection SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interrogation-du-type-et-de-la-version-de-la-base-de-donnees" class="md-nav__link">
+    Interrogation du type et de la version de la base de données
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lister-le-contenu-de-la-base-de-donnees" class="md-nav__link">
+    Lister le contenu de la base de données
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recuperer-plusieurs-valeurs-dans-une-seule-colonne" class="md-nav__link">
+    Récupérer plusieurs valeurs dans une seule colonne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examen-de-la-base-de-donnees" class="md-nav__link">
+    Examen de la base de données
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vulnerabilites-dinjection-sql-aveugle" class="md-nav__link">
+    Vulnérabilités d'injection SQL aveugle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-detecter-les-vulnerabilites-dinjection-sql" class="md-nav__link">
+    Comment détecter les vulnérabilités d'injection SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#injection-sql-dans-differentes-parties-de-la-requete" class="md-nav__link">
+    Injection SQL dans différentes parties de la requête
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#injection-sql-de-second-ordre" class="md-nav__link">
+    Injection SQL de second ordre
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facteurs-specifiques-a-la-base-de-donnees" class="md-nav__link">
+    Facteurs spécifiques à la base de données
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-empecher-linjection-sql" class="md-nav__link">
+    Comment empêcher l'injection SQL
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quest-ce-que-linjection-sql-sqli" class="md-nav__link">
+    Qu'est-ce que l'injection SQL (SQLi) ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quel-est-limpact-dune-attaque-par-injection-sql-reussie" class="md-nav__link">
+    Quel est l'impact d'une attaque par injection SQL réussie ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemples-dinjection-sql" class="md-nav__link">
+    Exemples d'injection SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemples d'injection SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recuperer-des-donnees-cachees" class="md-nav__link">
+    Récupérer des données cachées
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subversion-de-la-logique-applicative" class="md-nav__link">
+    Subversion de la logique applicative
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recuperer-des-donnees-a-partir-dautres-tables-de-base-de-donnees" class="md-nav__link">
+    Récupérer des données à partir d'autres tables de base de données
+  </a>
+  
+    <nav class="md-nav" aria-label="Récupérer des données à partir d'autres tables de base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attaques-union-par-injection-sql" class="md-nav__link">
+    Attaques UNION par injection SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Attaques UNION par injection SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determination-du-nombre-de-colonnes-requises-dans-une-attaque-union-par-injection-sql" class="md-nav__link">
+    Détermination du nombre de colonnes requises dans une attaque UNION par injection SQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utiliser-une-attaque-union-par-injection-sql-pour-recuperer-des-donnees-interessantes" class="md-nav__link">
+    Utiliser une attaque UNION par injection SQL pour récupérer des données intéressantes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examen-de-la-base-de-donnees-dans-les-attaques-par-injection-sql" class="md-nav__link">
+    Examen de la base de données dans les attaques par injection SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Examen de la base de données dans les attaques par injection SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interrogation-du-type-et-de-la-version-de-la-base-de-donnees" class="md-nav__link">
+    Interrogation du type et de la version de la base de données
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lister-le-contenu-de-la-base-de-donnees" class="md-nav__link">
+    Lister le contenu de la base de données
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recuperer-plusieurs-valeurs-dans-une-seule-colonne" class="md-nav__link">
+    Récupérer plusieurs valeurs dans une seule colonne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examen-de-la-base-de-donnees" class="md-nav__link">
+    Examen de la base de données
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vulnerabilites-dinjection-sql-aveugle" class="md-nav__link">
+    Vulnérabilités d'injection SQL aveugle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-detecter-les-vulnerabilites-dinjection-sql" class="md-nav__link">
+    Comment détecter les vulnérabilités d'injection SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#injection-sql-dans-differentes-parties-de-la-requete" class="md-nav__link">
+    Injection SQL dans différentes parties de la requête
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#injection-sql-de-second-ordre" class="md-nav__link">
+    Injection SQL de second ordre
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facteurs-specifiques-a-la-base-de-donnees" class="md-nav__link">
+    Facteurs spécifiques à la base de données
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment-empecher-linjection-sql" class="md-nav__link">
+    Comment empêcher l'injection SQL
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="sql-injection">SQL Injection</h1>
+<h2 id="quest-ce-que-linjection-sql-sqli">Qu'est-ce que l'injection SQL (SQLi) ?</h2>
+<p><img alt="Injection SQL illustration 1" src="https://github.com/pluzeaux/bts-sio/blob/main/images/figure_1.png" /></p>
+<p>L'injection <em>SQL</em> est une vulnérabilité de sécurité Web qui permet à un attaquant d'interférer avec les requêtes qu'une application effectue sur sa base de données.  </p>
+<p>Il permet généralement à un attaquant de visualiser des données qu'il n'est normalement pas en mesure de récupérer. Cela peut inclure des données appartenant à d'autres utilisateurs ou toute autre donnée à laquelle l'application elle-même est en mesure d'accéder.</p>
+<p>Dans de nombreux cas, un attaquant peut modifier ou supprimer ces données, provoquant des modifications persistantes du contenu ou du comportement de l'application.</p>
+<p>Dans certaines situations, un attaquant peut intensifier une attaque par injection SQL pour compromettre le serveur sous-jacent ou une autre infrastructure principale, ou effectuer une attaque par déni de service.</p>
+<h2 id="quel-est-limpact-dune-attaque-par-injection-sql-reussie">Quel est l'impact d'une attaque par injection SQL réussie ?</h2>
+<p>Une attaque par injection <em>SQL</em> réussie peut entraîner un accès non autorisé à des données sensibles, telles que des mots de passe, des détails de carte de crédit ou des informations personnelles sur l'utilisateur. De nombreuses violations de données très médiatisées ces dernières années ont été le résultat d'attaques par injection <em>SQL</em>, entraînant des dommages à la réputation et des amendes réglementaires.<br />
+Dans certains cas, un attaquant peut obtenir une porte dérobée persistante dans les systèmes d'une organisation, entraînant une compromission à long terme qui peut passer inaperçue pendant une période prolongée.  </p>
+<h2 id="exemples-dinjection-sql">Exemples d'injection <em>SQL</em></h2>
+<p>Il existe une grande variété de vulnérabilités, d'attaques et de techniques d'injection SQL, qui surviennent dans différentes situations. Voici quelques exemples courants d'injection <em>SQL</em> :</p>
+<ul>
+<li>Récupération des données cachées , où vous pouvez modifier une requête SQL pour renvoyer des résultats supplémentaires.</li>
+<li>Attaques <code>UNION</code> , où vous pouvez récupérer des données à partir de différentes tables de base de données.</li>
+<li>Examiner la base de données , où vous pouvez extraire des informations sur la version et la structure de la base de données.</li>
+<li>Injection <em>SQL</em> aveugle , où les résultats d'une requête que vous contrôlez ne sont pas renvoyés dans les réponses de l'application.</li>
+</ul>
+<h3 id="recuperer-des-donnees-cachees">Récupérer des données cachées</h3>
+<p>Considérez une application d'achat qui affiche des produits dans différentes catégories. Lorsque l'utilisateur clique sur la catégorie Cadeaux, son navigateur demande l'URL :
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>https://insecure-website.com/products?category=Gifts
+</code></pre></div>
+</td></tr></table></p>
+<p>Cela amène l'application à effectuer une requête <em>SQL</em> pour récupérer les détails des produits pertinents à partir de la base de données :</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">products</span> <span class="k">WHERE</span> <span class="n">category</span> <span class="o">=</span> <span class="s1">&#39;Gifts&#39;</span> <span class="k">AND</span> <span class="n">released</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+</td></tr></table>
+Cette requête <em>SQL</em> demande à la base de données de retourner :
+* tous les détails (*)
+* de la table <code>produits</code>
+* où la <code>category</code> est <code>Gifts</code>
+* et <code>released</code> est 1.</p>
+<p>La restriction <code>released = 1</code> est utilisée pour masquer les produits qui ne sont pas publiés. Pour les produits inédits, probablement <code>released = 0</code>.
+L'application n'implémente aucune défense contre les attaques par injection <em>SQL</em>, donc un attaquant peut construire une attaque comme :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>https://insecure-website.com/products?category=Gifts&#39;--
+</code></pre></div>
+</td></tr></table>
+<p>Cela se traduit par la requête SQL :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">products</span> <span class="k">WHERE</span> <span class="n">category</span> <span class="o">=</span> <span class="s1">&#39;Gifts&#39;</span><span class="c1">--&#39; AND released = 1</span>
+</code></pre></div>
+</td></tr></table>
+<p>L'élément clé ici est que la séquence à double tiret <code>--</code> est un indicateur de commentaire en <em>SQL</em> et signifie que le reste de la requête est interprété comme un commentaire. Cela supprime efficacement le reste de la requête, de sorte qu'elle n'inclut plus <code>AND released = 1</code>. Cela signifie que tous les produits sont affichés, y compris les produits non lancés.</p>
+<p>Pour aller plus loin, un attaquant peut faire en sorte que l'application affiche tous les produits de n'importe quelle catégorie, y compris des catégories qu'il ne connaît pas :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>https://insecure-website.com/products?category=Gifts&#39;+OR+1=1--
+</code></pre></div>
+</td></tr></table>
+<p>Cela se traduit par la requête <em>SQL</em> :</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">products</span> <span class="k">WHERE</span> <span class="n">category</span> <span class="o">=</span> <span class="s1">&#39;Gifts&#39;</span> <span class="k">OR</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="c1">--&#39; AND released = 1</span>
+</code></pre></div>
+</td></tr></table>
+La requête modifiée renverra tous les éléments dont la <code>category</code> est <code>Gifts</code> ou <code>1</code> est égal à <code>1</code>. Comme <code>1=1</code> est toujours vrai, la requête renverra tous les éléments.</p>
+<h2 id="subversion-de-la-logique-applicative">Subversion de la logique applicative</h2>
+<p>Considérez une application qui permet aux utilisateurs de se connecter avec un nom d'utilisateur et un mot de passe.<br />
+Si un utilisateur soumet le nom d'utilisateur <code>wieneret</code> le mot de passe <code>bluecheese</code>, l'application vérifie les informations d'identification en effectuant la requête <em>SQL</em> suivante :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;wiener&#39;</span> <span class="k">AND</span> <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;bluecheese&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Si la requête renvoie les détails d'un utilisateur, la connexion est réussie. Sinon, il est rejeté.
+Ici, un attaquant peut se connecter en tant qu'utilisateur sans mot de passe simplement en utilisant la séquence de commentaires <em>SQL</em> <code>--</code> pour supprimer la vérification du mot de passe de la clause <code>WHERE</code> de la requête. Par exemple, la soumission du nom d'utilisateur <code>administrator'--</code> et d'un mot de passe vide génère la requête suivante :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;administrator&#39;</span><span class="c1">--&#39; AND password = &#39;&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Cette requête renvoie l'utilisateur dont le nom est <code>administrator</code> et connecte avec succès l'attaquant en tant qu'utilisateur.</p>
+<h2 id="recuperer-des-donnees-a-partir-dautres-tables-de-base-de-donnees">Récupérer des données à partir d'autres tables de base de données</h2>
+<p>Dans les cas où les résultats d'une requête <em>SQL</em> sont renvoyés dans les réponses de l'application, un attaquant peut exploiter une vulnérabilité d'injection <em>SQL</em> pour récupérer des données à partir d'autres tables de la base de données.<br />
+Cela se fait à l'aide du <code>UNION</code> mot-clé, qui vous permet d'exécuter un <code>SELECT</code>  supplémentaire et d'ajouter les résultats à la requête d'origine.</p>
+<p>Par exemple, si une application exécute la requête suivante contenant l'entrée utilisateur « Gifts » :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span> <span class="k">FROM</span> <span class="n">products</span> <span class="k">WHERE</span> <span class="n">category</span> <span class="o">=</span> <span class="s1">&#39;Gifts&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>alors un attaquant peut soumettre l'entrée :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">&#39;</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="k">FROM</span> <span class="n">users</span><span class="c1">--</span>
+</code></pre></div>
+</td></tr></table>
+<p>Cela obligera l'application à renvoyer tous les noms d'utilisateur et mots de passe ainsi que les noms et descriptions des produits.</p>
+<h3 id="attaques-union-par-injection-sql">Attaques UNION par injection SQL</h3>
+<p>Lorsqu'une application est vulnérable à l'injection <em>SQL</em> et que les résultats de la requête sont renvoyés dans les réponses de l'application, le mot-clé <code>UNION</code> peut être utilisé pour récupérer des données à partir d'autres tables de la base de données. Cela entraîne une attaque <code>UNION</code> par injection <em>SQL</em>.</p>
+<p>Le mot-clé <em>UNION</em> vous permet d'exécuter une ou plusieurs requêtes <em>SELECT</em> supplémentaires et d'ajouter les résultats à la requête d'origine.
+Par exemple:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="k">c</span><span class="p">,</span> <span class="n">d</span> <span class="k">FROM</span> <span class="n">table2</span>
+</code></pre></div>
+</td></tr></table>
+<p>Cette requête <em>SQL</em> renverra un seul jeu de résultats avec deux colonnes, contenant les valeurs des colonnes <code>a</code> et <code>b</code> dans <code>table1</code> et des colonnes <code>c</code> et <code>d</code> dans <code>table2</code>.</p>
+<p>Pour qu'une requête <code>UNION</code> fonctionne, deux exigences clés doivent être remplies :</p>
+<p>Les requêtes individuelles doivent renvoyer le même nombre de colonnes.
+Les types de données dans chaque colonne doivent être compatibles entre les requêtes individuelles.
+Pour effectuer une attaque <code>UNION</code> par injection <em>SQL</em>, vous devez vous assurer que votre attaque répond à ces deux exigences.</p>
+<p>Il s'agit généralement de déterminer :
+* Combien de colonnes sont renvoyées à partir de la requête d'origine ?
+* Quelles colonnes renvoyées par la requête d'origine sont d'un type de données approprié pour contenir les résultats de la requête injectée ?</p>
+<h4 id="determination-du-nombre-de-colonnes-requises-dans-une-attaque-union-par-injection-sql">Détermination du nombre de colonnes requises dans une attaque UNION par injection SQL</h4>
+<p>Lors de l'exécution d'une attaque <code>UNION</code> par injection <em>SQL</em>, il existe deux méthodes efficaces pour déterminer le nombre de colonnes renvoyées par la requête d'origine.</p>
+<p>La première méthode consiste à injecter une série de <code>ORDER BY</code> clauses et à incrémenter l'index de colonne spécifié jusqu'à ce qu'une erreur se produise. Par exemple, en supposant que le point d'injection est une chaîne entre guillemets dans la <code>WHERE</code> clause de la requête d'origine, vous devez soumettre :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&#39; ORDER BY 1--
+&#39; ORDER BY 2--
+&#39; ORDER BY 3--
+etc.
+</code></pre></div>
+</td></tr></table>
+<p>Cette série d'instructions modifie la requête d'origine pour ordonner les résultats par différentes colonnes dans l'ensemble de résultats. La colonne d'un <code>ORDER BY</code> clause peut être spécifiée par son index, vous n'avez donc pas besoin à connaître le nom des colonnes. Lorsque l'index de colonne spécifié dépasse le nombre de colonnes réelles dans le jeu de résultats, la base de données renvoie une erreur, telle que :</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">The</span> <span class="o">`</span><span class="k">ORDER</span> <span class="k">BY</span><span class="o">`</span> <span class="k">position</span> <span class="nb">number</span> <span class="mi">3</span> <span class="k">is</span> <span class="k">out</span> <span class="k">of</span> <span class="n">range</span> <span class="k">of</span> <span class="n">the</span> <span class="nb">number</span> <span class="k">of</span> <span class="n">items</span> <span class="k">in</span> <span class="n">the</span> <span class="k">select</span> <span class="n">list</span><span class="p">.</span>
+</code></pre></div>
+</td></tr></table>
+L'application peut en fait renvoyer l'erreur de base de données dans sa réponse <em>HTTP</em>, ou elle peut renvoyer une erreur générique, ou simplement ne renvoyer aucun résultat. À condition que vous puissiez détecter une différence dans la réponse de l'application, vous pouvez déduire le nombre de colonnes renvoyées à partir de la requête.</p>
+<p>La deuxième méthode consiste à soumettre une série de <code>UNION SELECT</code> spécifiant un nombre différent de valeurs nulles :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&#39; UNION SELECT NULL--
+&#39; UNION SELECT NULL,NULL--
+&#39; UNION SELECT NULL,NULL,NULL--
+etc.
+</code></pre></div>
+</td></tr></table>
+<p>Si le nombre de valeurs <code>NULL</code> ne correspond pas au nombre de colonnes, la base de données renvoie une erreur, telle que :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">All</span> <span class="n">queries</span> <span class="n">combined</span> <span class="k">using</span> <span class="n">a</span> <span class="k">UNION</span><span class="p">,</span> <span class="k">INTERSECT</span> <span class="k">or</span> <span class="k">EXCEPT</span> <span class="k">operator</span> <span class="n">must</span> <span class="n">have</span> <span class="n">an</span> <span class="n">equal</span> <span class="nb">number</span> <span class="k">of</span> <span class="n">expressions</span> <span class="k">in</span> <span class="n">their</span> <span class="n">target</span> <span class="n">lists</span><span class="p">.</span>
+</code></pre></div>
+</td></tr></table>
+<p>Encore une fois, l'application peut en fait renvoyer ce message d'erreur, ou peut simplement renvoyer une erreur générique ou aucun résultat.<br />
+Lorsque le nombre de valeurs <code>NULL</code> correspond au nombre de colonnes, la base de données renvoie une ligne supplémentaire dans le jeu de résultats, contenant des valeurs <code>NULL</code> dans chaque colonne.<br />
+L'effet sur la réponse <em>HTTP</em> résultante dépend du code de l'application. Si vous avez de la chance, vous verrez du contenu supplémentaire dans la réponse, comme une ligne supplémentaire sur un tableau <em>HTML</em>.<br />
+Sinon, les valeurs nulles pourraient déclencher une erreur différente, telle qu'une exception de type  <code>NullPointerException</code>.<br />
+Dans le pire des cas, la réponse peut être impossible à distinguer de celle qui est provoquée par un nombre incorrect de valeurs <code>NULL</code>, rendant cette méthode de détermination du nombre de colonnes inefficace.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La raison de l'utilisation <code>NULL</code> des valeurs renvoyées par la requête <code>SELECT</code> injectée est que les types de données dans chaque colonne doivent être compatibles entre les requêtes d'origine et injectées.<br />
+Étant donné que <code>NULL</code> est convertible en tous les types de données couramment utilisés, l'utilisation de <code>NULL</code> maximise les chances que l'injectione réussisse lorsque le nombre de colonnes est correct.<br />
+Sur <em>Oracle</em>, chaque requête <code>SELECT</code> doit utiliser le mot-clé <code>FROM</code> et spécifier une table valide. Il existe une table intégrée sur <em>Oracle</em> appelée <code>DUAL</code> qui peut être utilisée à cette fin. </p>
+<p>Ainsi, les requêtes injectées sur <em>Oracle</em> devraient ressembler à :<br />
+<code>' UNION SELECT NULL FROM DUAL--</code>. </p>
+<p>Les injections décrites utilisent la séquence <code>--</code> de commentaires à double tiret pour commenter le reste de la requête d'origine après le point d'injection.<br />
+Sur <em>MySQL</em>, la séquence de double tiret doit être suivie d'un espace. Alternativement, le caractère dièse <code>#</code> peut être utilisé pour identifier un commentaire.</p>
+</div>
+<p>Recherche de colonnes avec un type de données utile dans une attaque <code>UNION</code> par injection <em>SQL</em></p>
+<p>La raison d'effectuer une attaque <code>UNION</code> par injection <em>SQL</em> est de pouvoir récupérer les résultats d'une requête injectée. En règle générale, les données intéressantes que vous souhaitez récupérer seront sous forme de chaîne, vous devez donc rechercher une ou plusieurs colonnes dans les résultats de la requête d'origine dont le type de données est ou est compatible avec les données de chaîne.</p>
+<p>Après avoir déjà déterminé le nombre de colonnes requises, vous pouvez sonder chaque colonne pour tester si elle peut contenir des données de chaîne en soumettant une série de <code>UNION SELECT</code> qui placent une valeur de chaîne dans chaque colonne à tour de rôle. Par exemple, si la requête renvoie quatre colonnes, vous devez soumettre :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&#39; UNION SELECT &#39;a&#39;,  NULL, NULL, NULL--
+&#39; UNION SELECT NULL, &#39;a&#39;,  NULL, NULL--
+&#39; UNION SELECT NULL, NULL, &#39;a&#39;,  NULL--
+&#39; UNION SELECT NULL, NULL, NULL, &#39;a&#39; --
+</code></pre></div>
+</td></tr></table>
+<p>Si le type de données d'une colonne n'est pas compatible avec les données de chaîne, la requête injectée provoquera une erreur de base de données, telle que :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">Conversion</span> <span class="n">failed</span> <span class="k">when</span> <span class="n">converting</span> <span class="n">the</span> <span class="nb">varchar</span> <span class="n">value</span> <span class="s1">&#39;a&#39;</span> <span class="k">to</span> <span class="k">data</span> <span class="k">type</span> <span class="nb">int</span><span class="p">.</span>
+</code></pre></div>
+</td></tr></table>
+<p>Si aucune erreur ne se produit et que la réponse de l'application contient du contenu supplémentaire, y compris la valeur de chaîne injectée, la colonne appropriée convient pour récupérer les données de chaîne.</p>
+<h4 id="utiliser-une-attaque-union-par-injection-sql-pour-recuperer-des-donnees-interessantes">Utiliser une attaque UNION par injection SQL pour récupérer des données intéressantes</h4>
+<p>Lorsque vous avez déterminé le nombre de colonnes renvoyées par la requête d'origine et trouvé quelles colonnes peuvent contenir des données de chaîne, vous êtes en mesure de récupérer des données intéressantes.</p>
+<p>Supposer que:</p>
+<ul>
+<li>La requête d'origine renvoie deux colonnes, qui peuvent toutes deux contenir des données de chaîne.</li>
+<li>Le point d'injection est une chaîne entre guillemets dans la WHEREclause.</li>
+<li>La base de données contient une table appelée usersavec les colonnes usernameet password.</li>
+</ul>
+<p>Dans cette situation, vous pouvez récupérer le contenu de la userstable en soumettant l'entrée :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">&#39;</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="k">FROM</span> <span class="n">users</span><span class="c1">--</span>
+</code></pre></div>
+</td></tr></table>
+<p>Bien sûr, l'information cruciale nécessaire pour effectuer cette attaque est qu'il existe une table appelée <code>users</code> avec deux colonnes appelées username et <code>password</code>.<br />
+Sans ces informations, vous seriez obligé de deviner les noms des tables et des colonnes.<br />
+En fait, toutes les bases de données modernes offrent des moyens d'examiner la structure de la base de données, afin de déterminer quelles tables et colonnes elle contient.</p>
+<h4 id="examen-de-la-base-de-donnees-dans-les-attaques-par-injection-sql">Examen de la base de données dans les attaques par injection SQL</h4>
+<p>Lors de l'exploitation des vulnérabilités d' injection <em>SQL</em> , il est souvent nécessaire de collecter des informations sur la base de données elle-même. Cela inclut le type et la version du logiciel de base de données, ainsi que le contenu de la base de données en termes de tables et de colonnes qu'elle contient.</p>
+<h5 id="interrogation-du-type-et-de-la-version-de-la-base-de-donnees">Interrogation du type et de la version de la base de données</h5>
+<p>Différentes bases de données offrent différentes manières d'interroger leur version. Vous devez souvent essayer différentes requêtes pour en trouver une qui fonctionne, vous permettant de déterminer à la fois le type et la version du logiciel de base de données.</p>
+<p>Les requêtes pour déterminer la version de la base de données pour certains types de base de données courants sont les suivantes :</p>
+<table>
+<thead>
+<tr>
+<th>Type de base de données</th>
+<th>Mettre en doute            </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft, MySQL</td>
+<td><code>SELECT @@version</code></td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td><code>SELECT * FROM v$version</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>SELECT version()</code></td>
+</tr>
+</tbody>
+</table>
+<p>Par exemple, vous pouvez utiliser une UNIONattaque avec l'entrée suivante :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">&#39;</span> <span class="k">UNION</span> <span class="k">SELECT</span> <span class="o">@@</span><span class="k">version</span><span class="c1">--</span>
+</code></pre></div>
+</td></tr></table>
+<p>Cela peut renvoyer une sortie comme celle-ci, confirmant que la base de données est Microsoft <em>SQL Server</em> et la version utilisée :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Microsoft SQL Server 2016 (SP2) (KB4052908) - 13.0.5026.0 (X64)
+Mar 18 2018 09:11:49
+Copyright (c) Microsoft Corporation
+Standard Edition (64-bit) on Windows Server 2016 Standard 10.0 &lt;X64&gt; (Build 14393: ) (Hypervisor)
+</code></pre></div>
+</td></tr></table>
+<h5 id="lister-le-contenu-de-la-base-de-donnees">Lister le contenu de la base de données</h5>
+<p>La plupart des types de bases de données (à l'exception notable d'<em>Oracle</em>) ont un ensemble de vues appelé schéma d'informations qui fournissent des informations sur la base de données.</p>
+<p>Vous pouvez interroger information_schema.tablespour répertorier les tables de la base de données :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span>
+</code></pre></div>
+</td></tr></table>
+<p>Cela renvoie une sortie comme suit :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>TABLE_CATALOG TABLE_SCHEMA TABLE_NAME TABLE_TYPE
+=====================================================
+MyDatabase dbo Products BASE TABLE
+MyDatabase dbo Users BASE TABLE
+MyDatabase dbo Feedback BASE TABLE
+</code></pre></div>
+</td></tr></table>
+<p>Cette sortie indique qu'il existe trois tables, appelées <code>Products</code>, <code>Users</code>, et <code>Feedback</code>.</p>
+<p>Vous pouvez ensuite interroger <code>information_schema.columns</code> pour répertorier les colonnes dans des tables individuelles :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span> <span class="k">WHERE</span> <span class="k">table_name</span> <span class="o">=</span> <span class="s1">&#39;Users&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Cela renvoie une sortie comme suit :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>TABLE_CATALOG TABLE_SCHEMA TABLE_NAME COLUMN_NAME DATA_TYPE
+=================================================================
+MyDatabase dbo Users UserId int
+MyDatabase dbo Users Username varchar
+MyDatabase dbo Users Password varchar
+</code></pre></div>
+</td></tr></table>
+<p>Cette sortie affiche les colonnes de la table spécifiée et le type de données de chaque colonne.</p>
+<p>Équivalent au schéma d'information sur <em>Oracle</em>
+Sur <em>Oracle</em>, vous pouvez obtenir les mêmes informations avec des requêtes légèrement différentes.</p>
+<p>Vous pouvez lister les tables en interrogeant all_tables:
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">all_tables</span>
+</code></pre></div>
+</td></tr></table></p>
+<p>Et vous pouvez lister les colonnes en interrogeant <code>all_tab_columns</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">all_tab_columns</span> <span class="k">WHERE</span> <span class="k">table_name</span> <span class="o">=</span> <span class="s1">&#39;USERS&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="recuperer-plusieurs-valeurs-dans-une-seule-colonne">Récupérer plusieurs valeurs dans une seule colonne</h4>
+<p>Dans l'exemple précédent, supposons plutôt que la requête ne renvoie qu'une seule colonne.</p>
+<p>Vous pouvez facilement récupérer plusieurs valeurs ensemble dans cette seule colonne en concaténant les valeurs ensemble, en incluant idéalement un séparateur approprié pour vous permettre de distinguer les valeurs combinées. Par exemple, sur <em>Oracle</em>, vous pouvez soumettre l'entrée :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="s1">&#39; UNION SELECT username || &#39;</span><span class="o">~</span><span class="err">&#39;</span> <span class="o">||</span> <span class="n">password</span> <span class="k">FROM</span> <span class="n">users</span><span class="c1">--</span>
+</code></pre></div>
+</td></tr></table>
+<p>Cela utilise la séquence à double tube ||qui est un opérateur de concaténation de chaînes sur Oracle. La requête injectée concatène les valeurs des champs usernameet password, séparées par le ~caractère.</p>
+<p>Les résultats de la requête vous permettront de lire tous les noms d'utilisateur et mots de passe, par exemple :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>...
+administrator~s3cure
+wiener~peter
+carlos~montoya
+...
+</code></pre></div>
+</td></tr></table>
+<p>Notez que différentes bases de données utilisent une syntaxe différente pour effectuer la concaténation de chaînes. Pour plus de détails, consultez l' aide-mémoire sur l'injection SQL .</p>
+<h2 id="examen-de-la-base-de-donnees">Examen de la base de données</h2>
+<p>Suite à l'identification initiale d'une vulnérabilité d'injection SQL, il est généralement utile d'obtenir des informations sur la base de données elle-même. Ces informations peuvent souvent ouvrir la voie à une exploitation ultérieure.</p>
+<p>Vous pouvez interroger les détails de la version de la base de données. La façon dont cela est fait dépend du type de base de données, vous pouvez donc déduire le type de base de données à partir de la technique qui fonctionne. Par exemple, sur Oracle, vous pouvez exécuter :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">v$version</span>
+</code></pre></div>
+</td></tr></table>
+<p>Vous pouvez également déterminer quelles tables de base de données existent et quelles colonnes elles contiennent. Par exemple, sur la plupart des bases de données, vous pouvez exécuter la requête suivante pour répertorier les tables :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="vulnerabilites-dinjection-sql-aveugle">Vulnérabilités d'injection SQL aveugle</h2>
+<p>De nombreuses instances d'injection SQL sont des vulnérabilités aveugles. Cela signifie que l'application ne renvoie pas les résultats de la requête SQL ou les détails des erreurs de base de données dans ses réponses. Des vulnérabilités aveugles peuvent toujours être exploitées pour accéder à des données non autorisées, mais les techniques impliquées sont généralement plus compliquées et difficiles à mettre en œuvre.</p>
+<p>Selon la nature de la vulnérabilité et la base de données impliquée, les techniques suivantes peuvent être utilisées pour exploiter les vulnérabilités d'injection SQL aveugle :</p>
+<ul>
+<li>Vous pouvez modifier la logique de la requête pour déclencher une différence détectable dans la réponse de l'application en fonction de la véracité d'une seule condition. Cela peut impliquer l'injection d'une nouvelle condition dans une logique booléenne ou le déclenchement conditionnel d'une erreur telle qu'une division par zéro.</li>
+<li>Vous pouvez déclencher de manière conditionnelle un délai dans le traitement de la requête, ce qui vous permet de déduire la véracité de la condition en fonction du temps que met l'application pour répondre.</li>
+<li>Vous pouvez déclencher une interaction réseau hors bande à l'aide des techniques OAST . Cette technique est extrêmement puissante et fonctionne dans des situations où les autres techniques ne le font pas. Souvent, vous pouvez directement exfiltrer les données via le canal hors bande, par exemple en plaçant les données dans une recherche DNS pour un domaine que vous contrôlez.</li>
+</ul>
+<p>Out-of-band application security testing (OAST) utilise des serveurs externes pour voir des vulnérabilités autrement invisibles. Il a été introduit pour améliorer encore le modèle DAST (dynamic application security testing). </p>
+<h2 id="comment-detecter-les-vulnerabilites-dinjection-sql">Comment détecter les vulnérabilités d'injection SQL</h2>
+<p>La majorité des vulnérabilités d'injection SQL peuvent être trouvées rapidement et de manière fiable à l'aide du scanner de vulnérabilités Web de Burp Suite .</p>
+<p>L'injection SQL peut être détectée manuellement en utilisant un ensemble systématique de tests sur chaque point d'entrée de l'application. Cela implique généralement :</p>
+<ul>
+<li>Soumettre le caractère guillemet simple <code>'</code> et rechercher des erreurs ou d'autres anomalies.</li>
+<li>Soumettre une syntaxe spécifique à <em>SQL</em> qui évalue la valeur de base (d'origine) du point d'entrée et une valeur différente, et rechercher des différences systématiques dans les réponses d'application résultantes.</li>
+<li>Soumettre des conditions booléennes telles que <code>OR 1=1</code> et <code>OR 1=2</code>, et rechercher des différences dans les réponses de l'application.</li>
+<li>Soumettre des charges utiles conçues pour déclencher des retards lorsqu'elles sont exécutées dans une requête <em>SQL</em> et rechercher des différences dans le temps nécessaire pour répondre.</li>
+<li>Soumettre des charges utiles <em>OAST</em> conçues pour déclencher une interaction réseau hors bande lorsqu'elles sont exécutées dans une requête <em>SQL</em>, et surveiller les interactions résultantes.</li>
+</ul>
+<h2 id="injection-sql-dans-differentes-parties-de-la-requete">Injection SQL dans différentes parties de la requête</h2>
+<p>La plupart des vulnérabilités d'injection SQL surviennent dans la WHEREclause d'une SELECTrequête. Ce type d'injection SQL est généralement bien compris par les testeurs expérimentés.</p>
+<p>Mais les vulnérabilités d'injection SQL peuvent en principe se produire à n'importe quel endroit de la requête et au sein de différents types de requêtes. Les autres emplacements les plus courants où l'injection SQL se produit sont :</p>
+<ul>
+<li>Dans les instructions <em>UPDATE</em>, dans les valeurs mises à jour ou la clause WHERE.</li>
+<li>Dans les instructions <em>INSERT</em>, dans les valeurs insérées.</li>
+<li>Dans les instructions <em>SELECT</em>, dans le nom de la table ou de la colonne.</li>
+<li>Dans les déclarations <em>SELECT</em>, dans la clause <em>ORDER BY</em>.</li>
+</ul>
+<h2 id="injection-sql-de-second-ordre">Injection SQL de second ordre</h2>
+<p>L'injection SQL de premier ordre se produit lorsque l'application prend l'entrée de l'utilisateur à partir d'une requête HTTP et, au cours du traitement de cette requête, incorpore l'entrée dans une requête SQL d'une manière dangereuse.</p>
+<p>Dans l'injection SQL de second ordre (également appelée injection SQL stockée), l'application prend l'entrée de l'utilisateur à partir d'une requête HTTP et la stocke pour une utilisation future. Cela se fait généralement en plaçant l'entrée dans une base de données, mais aucune vulnérabilité ne survient au point où les données sont stockées. Plus tard, lors du traitement d'une requête HTTP différente, l'application récupère les données stockées et les intègre dans une requête SQL de manière non sécurisée.</p>
+<p><img alt="Injection SQL illustration 1" src="https://github.com/pluzeaux/bts-sio/blob/main/images/figure_2.png" /></p>
+<p>L'injection SQL de second ordre se produit souvent dans des situations où les développeurs sont conscients des vulnérabilités de l'injection SQL et gèrent ainsi en toute sécurité le placement initial de l'entrée dans la base de données. Lorsque les données sont traitées ultérieurement, elles sont considérées comme sûres, car elles ont été précédemment placées dans la base de données en toute sécurité. À ce stade, les données sont traitées de manière dangereuse, car le développeur les considère à tort comme dignes de confiance.</p>
+<h2 id="facteurs-specifiques-a-la-base-de-donnees">Facteurs spécifiques à la base de données</h2>
+<p>Certaines fonctionnalités de base du langage <em>SQL</em> sont implémentées de la même manière sur les plates-formes de bases de données courantes, et de nombreuses façons de détecter et d'exploiter les vulnérabilités d'injection SQL fonctionnent de manière identique sur différents types de bases de données.</p>
+<p>Cependant, il existe également de nombreuses différences entre les bases de données communes. Cela signifie que certaines techniques de détection et d'exploitation de l'injection SQL fonctionnent différemment sur différentes plates-formes. Par exemple:</p>
+<ul>
+<li>Syntaxe pour la concaténation de chaînes.</li>
+<li>Commentaires.</li>
+<li>Requêtes groupées (ou empilées).</li>
+<li>API spécifiques à la plate-forme.</li>
+<li>Messages d'erreur.</li>
+</ul>
+<h2 id="comment-empecher-linjection-sql">Comment empêcher l'injection SQL</h2>
+<p>La plupart des instances d'injection <em>SQL</em> peuvent être évitées en utilisant des requêtes paramétrées (également appelées instructions préparées) au lieu de la concaténation de chaînes dans la requête.</p>
+<p>Le code suivant est vulnérable à l'injection SQL car l'entrée utilisateur est concaténée directement dans la requête :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="ss">&quot;SELECT * FROM products WHERE category = &#39;&quot;</span><span class="o">+</span> <span class="k">input</span> <span class="o">+</span> <span class="ss">&quot;&#39;&quot;</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Statement statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery(query);
+</code></pre></div>
+</td></tr></table>
+<p>Ce code peut être facilement réécrit d'une manière qui empêche l'entrée de l'utilisateur d'interférer avec la structure de la requête :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>PreparedStatement statement = connection.prepareStatement(&quot;SELECT * FROM products WHERE category = ?&quot;);
+statement.setString(1, input);
+ResultSet resultSet = statement.executeQuery();
+</code></pre></div>
+</td></tr></table>
+<p>Les requêtes paramétrées peuvent être utilisées pour toute situation où une entrée non fiable apparaît sous forme de données dans la requête, y compris la <code>WHERE</code> clause et les valeurs d'une instruction <code>INSERT</code> ou <code>UPDATE</code>. Ils ne peuvent pas être utilisés pour gérer des entrées non fiables dans d'autres parties de la requête, telles que les noms de table ou de colonne, ou la <code>ORDER BY</code> clause. La fonctionnalité d'application qui place des données non fiables dans ces parties de la requête devra adopter une approche différente, telle que la mise en liste blanche des valeurs d'entrée autorisées, ou l'utilisation d'une logique différente pour fournir le comportement requis.</p>
+<p>Pour qu'une requête paramétrée empêche efficacement l'injection <em>SQL</em>, la chaîne utilisée dans la requête doit toujours être une constante codée en dur et ne doit jamais contenir de données variables de quelque origine que ce soit. Ne soyez pas tenté de décider au cas par cas si un élément de données est fiable et continuez à utiliser la concaténation de chaînes dans la requête pour les cas considérés comme sûrs. Il est trop facile de faire des erreurs sur l'origine possible des données, ou que des modifications dans d'autres codes violent les hypothèses sur les données qui sont entachées.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../rgpd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Qu&#39;est-ce que le RGPD ?" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Qu'est-ce que le RGPD ?
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
