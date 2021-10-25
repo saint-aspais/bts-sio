@@ -845,9 +845,7 @@ Dans ce chapitre nous allons voir trois nouveaux types d'objet séquentiel avec 
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
 </div>
-<blockquote>
 <p>Les objets séquentiels peuvent être aussi appelés parfois containers.</p>
-</blockquote>
 <h2 id="dictionnaires">Dictionnaires</h2>
 <h3 id="definition">Définition</h3>
 <p>Les dictionnaires se révèlent très pratiques lorsque vous devez manipuler des structures complexes à décrire et que les listes présentent leurs limites. Les dictionnaires sont des collections non ordonnées d'objets, c'est-à-dire qu'il n'y a pas de notion d'ordre (i.e. pas d'indice). On accède aux valeurs d'un dictionnaire par des clés. Ceci semble un peu confus ? Regardez l'exemple suivant :</p>
@@ -865,10 +863,10 @@ Dans ce chapitre nous allons voir trois nouveaux types d'objet séquentiel avec 
 </code></pre></div>
 </td></tr></table>
 <p>En premier, on définit un dictionnaire vide avec les accolades <code>{}</code> (tout comme on peut le faire pour les listes avec <code>[]</code>). Ensuite, on remplit le dictionnaire avec différentes clés ("nom", "taille", "poids") auxquelles on affecte des valeurs <code>("girafe", 5.0, 1100)</code>. Vous pouvez mettre autant de clés que vous voulez dans un dictionnaire (tout comme vous pouvez ajouter autant d'éléments que vous voulez dans une liste).</p>
-<blockquote>
-<p>Remarque<br />
-Un dictionnaire est affiché sans ordre particulier.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+</div>
+<p>Un dictionnaire est affiché sans ordre particulier.</p>
 <p>On peut aussi initialiser toutes les clés et les valeurs d'un dictionnaire en une seule opération :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">ani2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;singe&quot;</span><span class="p">,</span> <span class="s2">&quot;poids&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">&quot;taille&quot;</span><span class="p">:</span> <span class="mf">1.75</span><span class="p">}</span>
 </code></pre></div>
@@ -884,11 +882,11 @@ Par exemple :</p>
 <span class="mf">5.0</span>
 </code></pre></div>
 </td></tr></table>
-<blockquote>
-<p>Remarque<br />
-Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. Rien n'empêche d'utiliser d'autres types d'objets comme des entiers (voire même des tuples, cf. rubrique suivante), cela peut parfois s'avérer très utile.<br />
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+</div>
+<p>Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. Rien n'empêche d'utiliser d'autres types d'objets comme des entiers (voire même des tuples, cf. rubrique suivante), cela peut parfois s'avérer très utile.<br />
 Néanmoins, nous vous conseillons, autant que possible, d'utiliser systématiquement des chaînes de caractères pour vos clés de dictionnaire.</p>
-</blockquote>
 <p>Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires.<br />
 Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices. Les humains retiennent mieux les noms que les chiffres.<br />
 Ainsi, l'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées <code>(x,y,z)</code>
@@ -1049,10 +1047,10 @@ Un lecteur comprendra tout de suite que <code>coors["z"]</code> contient la coor
 <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
-<blockquote>
-<p>Remarque <br />
-Lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire ani2 car les valeurs sont des valeurs numériques et une chaîne de caractères :</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+</div>
+<p>Lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire ani2 car les valeurs sont des valeurs numériques et une chaîne de caractères :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1103,10 +1101,10 @@ Lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit
 </td></tr></table>
 <p>Vous constatez ainsi que les dictionnaires permettent de gérer des structures complexes de manière plus explicite que les listes.</p>
 <h3 id="fonction-dict">Fonction <code>dict()</code></h3>
-<blockquote>
-<p>Conseil<br />
-Pour les débutants vous pouvez sauter cette rubrique.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Conseil</p>
+</div>
+<p>Pour les débutants vous pouvez sauter cette rubrique.</p>
 <p>La fonction <code>dict()</code> va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de casting comme <code>int()</code>, <code>str()</code>, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière : un objet séquentiel contenant d'autres objets séquentiels de 2 éléments. Par exemple, une liste de listes de 2 éléments :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1173,11 +1171,11 @@ Pour les débutants vous pouvez sauter cette rubrique.</p>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<blockquote>
-<p>Remarque<br />
-Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec une virgule (element,), ceci pour éviter une ambiguïté avec une simple expression.<br />
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+</div>
+<p>Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec une virgule (element,), ceci pour éviter une ambiguïté avec une simple expression.<br />
 Autre particularité des tuples, il est possible d'en créer de nouveaux sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :</p>
-</blockquote>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1202,10 +1200,10 @@ Autre particularité des tuples, il est possible d'en créer de nouveaux sans le
 <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<blockquote>
-<p>Remarque<br />
-Les <strong>listes</strong>, les <strong>dictionnaires</strong> et les <strong>tuples</strong> sont des objets qui peuvent contenir des collections d'autres objets. On peut donc construire des listes qui contiennent des <strong>dictionnaires</strong>, des <strong>tuples</strong> ou d'autres <strong>listes</strong>, mais aussi des <strong>dictionnaires</strong> contenant des <strong>tuples</strong>, des <strong>listes</strong>, etc.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+</div>
+<p>Les <strong>listes</strong>, les <strong>dictionnaires</strong> et les <strong>tuples</strong> sont des objets qui peuvent contenir des collections d'autres objets. On peut donc construire des listes qui contiennent des <strong>dictionnaires</strong>, des <strong>tuples</strong> ou d'autres <strong>listes</strong>, mais aussi des <strong>dictionnaires</strong> contenant des <strong>tuples</strong>, des <strong>listes</strong>, etc.</p>
 <h3 id="iterations-sur-plusieurs-valeurs-a-la-fois">Itérations sur plusieurs valeurs à la fois</h3>
 <p>Pratiquement, nous avons déjà croisé les <strong>tuples</strong> avec la fonction <code>enumerate()</code> dans le chapitre 5 Boucles et comparaisons. Cette dernière permettait d'itérer en même temps sur les indices et les éléments d'une liste :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1283,12 +1281,12 @@ Les <strong>listes</strong>, les <strong>dictionnaires</strong> et les <strong>t
 <h3 id="affectation-multiple-et-le-nom-de-variable-_">Affectation multiple et le nom de variable _</h3>
 <p>L'affectation multiple est un mécanisme très puissant et important en <em>Python</em>. Pour rappel, il permet d'effectuer sur une même ligne plusieurs affectations en même temps, par exemple : <code>x, y, z = 1, 2, 3</code>.<br />
 On voit que cette syntaxe correspond à un tuple de chaque côté de l'opérateur <code>=</code>. Notez qu'il serait possible de le faire également avec les listes : <code>[x, y, z] = [1, 2, 3]</code>. Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la première syntaxe avec les <strong>tuples</strong> sans parenthèse.</p>
-<blockquote>
-<p>Remarque<br />
-Nous avons appelé l'opération <code>x, y, z = 1, 2, 3</code> affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps.<br />
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+</div>
+<p>Nous avons appelé l'opération <code>x, y, z = 1, 2, 3</code> affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps.<br />
 Toutefois, vous pourrez rencontrer aussi l'expression <em>tuple unpacking</em> que l'on pourrait traduire par « <em>désempaquetage de tuple</em> ».<br />
 Cela signifie que l'on décompose le tuple initial <code>1, 2, 3</code> en 3 variables différentes (comme si on vidait son sac à dos, d'où le terme désempaquetage !).</p>
-</blockquote>
 <p>Nous avions croisé l'importance de l'affectation multiple dans le chapitre 9 Fonctions lorsqu'une fonction renvoyait plusieurs valeurs.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1319,10 +1317,10 @@ Cela signifie que l'on décompose le tuple initial <code>1, 2, 3</code> en 3 var
 <span class="mi">3</span> <span class="mi">14</span>
 </code></pre></div>
 </td></tr></table>
-<blockquote>
-<p>Conseils<br />
-Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la forme <code>x, y = fct()</code> qui sera privilégiée.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+</div>
+<p>Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la forme <code>x, y = fct()</code> qui sera privilégiée.</p>
 <p>Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable <code>_</code> (underscore) pour indiquer que certaines valeurs ne nous intéressent pas :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1342,10 +1340,10 @@ Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien 
 </code></pre></div>
 </td></tr></table>
 <p>Cela envoie le message à celui qui lit le code « <em>je me fiche des valeurs récupérées dans ces variables</em> <code>_</code> ». Notez que l'on peut utiliser une ou plusieurs variables underscores(s). Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyées par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.</p>
-<blockquote>
-<p>Remarque<br />
-La variable <code>_</code> a une autre signication spéciale dans l'interpréteur interactif, elle prend automatiquement la dernière valeur affichée :</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+</div>
+<p>La variable <code>_</code> a une autre signication spéciale dans l'interpréteur interactif, elle prend automatiquement la dernière valeur affichée :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1364,8 +1362,10 @@ La variable <code>_</code> a une autre signication spéciale dans l'interpréteu
 </code></pre></div>
 </td></tr></table>
 <p>Attention, cela n'est vrai que dans l'interpréteur.</p>
+<div class="admonition note">
+<p class="admonition-title">Conseils</p>
+</div>
 <blockquote>
-<p>Remarque</p>
 <p>Le underscore est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple seq_ADN ou liste_listes_residus. On verra dans le chapitre 15 Bonnes pratiques en programmation Python que ce style de nommage est appelé snake_case. Toutefois, il faut éviter d'utiliser les underscores en début et/ou en fin de nom de variable (e.g. <code>_var</code>, <code>var_</code>, <code>__var</code>, <code>__var__</code>). On verra au chapitre 19 Avoir la classe avec les objets que ces underscores ont une signification particulière.</p>
 </blockquote>
 <h2 id="sets">Sets</h2>
