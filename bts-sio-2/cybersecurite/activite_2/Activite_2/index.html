@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
     
       
 
@@ -47,13 +49,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -99,6 +105,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -626,9 +654,10 @@
 <h3 id="comment-proceder">Comment procéder...</h3>
 <p>Après avoir choisi l'édition dont vous avez besoin, vous avez deux options d'installation, à savoir un exécutable ou un simple fichier <em>JAR</em>. L'exécutable est uniquement disponible sous Windows et est proposé en 32 ou 64 bits. Le fichier <em>JAR</em> simple est disponible pour Windows, <em>macOS</em> et <em>Linux</em>.</p>
 <p>L'exécutable <em>Windows</em> est autonome et crée des icônes dans la liste de vos programmes. Toutefois, le fichier <em>JAR</em> brut nécessite que <em>Java</em> (<code>https://www.java.com/fr/download/</code>) soit préinstallé sur votre plate-forme. Vous pouvez choisir la version actuelle de Java (<em>JRE</em> ou <em>JDK</em>), alors n'hésitez pas à choisir la dernière version :</p>
-<p style="text-align:center">
-    <img alt="" src="../images/img1.png" width="50%" />
-</p>
+<figure>
+<p><img alt="" src="../images/img1.png" width="400" />
+ </p>
+</figure>
 <h3 id="mise-en-place-dun-web-app-pentesting-lab">Mise en place d'un "web app pentesting lab"</h3>
 <p>Le projet <em>Broken Web Application (BWA)</em> est un projet de l'<em>OWASP</em> qui fournit une <em>VM</em> autonome contenant une variété d'applications présentant des vulnérabilités connues. Les applications de cette <em>VM</em> permettent aux étudiants de se familiariser avec la sécurité des applications Web, de pratiquer et d'observer des attaques Web et d'utiliser des outils de pénétration tels que <em>Burp</em>.
 Pour suivre les <em>recipes</em>, nous utiliserons la <em>VM BWA</em> de l'<em>OWASP</em> (<code>https://sourceforge.net/ projects/owaspbwa/files/</code>).</p>

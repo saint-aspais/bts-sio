@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
     
       
 
@@ -47,13 +49,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -99,6 +105,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -865,8 +893,8 @@ Dans ce chapitre nous allons voir trois nouveaux types d'objet séquentiel avec 
 <p>En premier, on définit un dictionnaire vide avec les accolades <code>{}</code> (tout comme on peut le faire pour les listes avec <code>[]</code>). Ensuite, on remplit le dictionnaire avec différentes clés ("nom", "taille", "poids") auxquelles on affecte des valeurs <code>("girafe", 5.0, 1100)</code>. Vous pouvez mettre autant de clés que vous voulez dans un dictionnaire (tout comme vous pouvez ajouter autant d'éléments que vous voulez dans une liste).</p>
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
-</div>
 <p>Un dictionnaire est affiché sans ordre particulier.</p>
+</div>
 <p>On peut aussi initialiser toutes les clés et les valeurs d'un dictionnaire en une seule opération :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">ani2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;singe&quot;</span><span class="p">,</span> <span class="s2">&quot;poids&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">&quot;taille&quot;</span><span class="p">:</span> <span class="mf">1.75</span><span class="p">}</span>
 </code></pre></div>
@@ -875,18 +903,20 @@ Dans ce chapitre nous allons voir trois nouveaux types d'objet séquentiel avec 
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">ani2</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
 </code></pre></div>
 </td></tr></table>
-<p>Pour récupérer la valeur associée à une clé donnée, il suffit d'utiliser la syntaxe suivante <code>dictionnaire["cle"]</code>.<br />
-Par exemple :</p>
+<p>Pour récupérer la valeur associée à une clé donnée, il suffit d'utiliser la syntaxe suivante <code>dictionnaire["cle"]</code>.  </p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">ani1</span><span class="p">[</span><span class="s2">&quot;taille&quot;</span><span class="p">]</span>
 <span class="mf">5.0</span>
 </code></pre></div>
 </td></tr></table>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
+<p>Toutes les clés de dictionnaire utilisées jusqu'à présent   étaient des chaînes de caractères. Rien n'empêche   d'utiliser d'autres types d'objets comme des entiers    (voire même des tuples, cf. rubrique suivante), cela peut   parfois s'avérer très utile.<br />
+Néanmoins, nous vous conseillons, autant que possible,  d'utiliser systématiquement des chaînes de caractères   pour vos clés de dictionnaire.</p>
 </div>
-<p>Toutes les clés de dictionnaire utilisées jusqu'à présent étaient des chaînes de caractères. Rien n'empêche d'utiliser d'autres types d'objets comme des entiers (voire même des tuples, cf. rubrique suivante), cela peut parfois s'avérer très utile.<br />
-Néanmoins, nous vous conseillons, autant que possible, d'utiliser systématiquement des chaînes de caractères pour vos clés de dictionnaire.</p>
 <p>Après ce premier tour d'horizon, on voit tout de suite l'avantage des dictionnaires.<br />
 Pouvoir retrouver des éléments par des noms (clés) plutôt que par des indices. Les humains retiennent mieux les noms que les chiffres.<br />
 Ainsi, l'usage des dictionnaires rend en général le code plus lisible. Par exemple, si nous souhaitions stocker les coordonnées <code>(x,y,z)</code>
@@ -1049,8 +1079,7 @@ Un lecteur comprendra tout de suite que <code>coors["z"]</code> contient la coor
 </td></tr></table>
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
-</div>
-<p>Lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible. Ce n'est, par exemple, pas le cas pour le dictionnaire ani2 car les valeurs sont des valeurs numériques et une chaîne de caractères :</p>
+<p>Lorsqu'on trie un dictionnaire par ses valeurs, il faut être sûr que cela soit possible.    Ce n'est, par exemple, pas le cas pour le dictionnaire ani2 car les valeurs sont des    valeurs numériques et une chaîne de caractères :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1062,7 +1091,8 @@ Un lecteur comprendra tout de suite que <code>coors["z"]</code> contient la coor
 <span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;&lt;&#39;</span> <span class="ow">not</span> <span class="n">supported</span> <span class="n">between</span> <span class="n">instances</span> <span class="n">of</span> <span class="s1">&#39;int&#39;</span> <span class="ow">and</span> <span class="s1">&#39;str&#39;</span>
 </code></pre></div>
 </td></tr></table>
-<p>On obtient ici une erreur car Python ne sait pas comparer une chaîne de caractères (<code>singe</code>) avec des valeurs numériques (<code>70</code> et <code>1.75</code>).</p>
+<p>On obtient ici une erreur car Python ne sait pas comparer une chaîne de caractères  (<code>singe</code>) avec des valeurs numériques (<code>70</code> et <code>1.75</code>).</p>
+</div>
 <h3 id="cle-associee-au-minimum-ou-au-maximum-des-valeurs">Clé associée au minimum ou au maximum des valeurs</h3>
 <p>Les fonctions <code>min()</code> et <code>max()</code>, que vous avez déjà manipulées dans les chapitres précédents, acceptent également l'argument <code>key=</code>. On peut ainsi obtenir la clé associée au minimum ou au maximum des valeurs d'un dictionnaire :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1101,10 +1131,10 @@ Un lecteur comprendra tout de suite que <code>coors["z"]</code> contient la coor
 </td></tr></table>
 <p>Vous constatez ainsi que les dictionnaires permettent de gérer des structures complexes de manière plus explicite que les listes.</p>
 <h3 id="fonction-dict">Fonction <code>dict()</code></h3>
-<div class="admonition note">
+<div class="admonition tip">
 <p class="admonition-title">Conseil</p>
-</div>
 <p>Pour les débutants vous pouvez sauter cette rubrique.</p>
+</div>
 <p>La fonction <code>dict()</code> va convertir l'argument qui lui est passé en dictionnaire. Il s'agit donc d'une fonction de casting comme <code>int()</code>, <code>str()</code>, etc. Toutefois, l'argument qui lui est passé doit avoir une forme particulière : un objet séquentiel contenant d'autres objets séquentiels de 2 éléments. Par exemple, une liste de listes de 2 éléments :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1173,10 +1203,9 @@ Un lecteur comprendra tout de suite que <code>coors["z"]</code> contient la coor
 </td></tr></table>
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
-</div>
-<p>Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec une virgule (element,), ceci pour éviter une ambiguïté avec une simple expression.<br />
-Autre particularité des tuples, il est possible d'en créer de nouveaux sans les parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p>Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec une virgule  (element,), ceci pour éviter une ambiguïté avec une simple expression.<br />
+Autre particularité des tuples, il est possible d'en créer de nouveaux sans les     parenthèses, dès lors que ceci ne pose pas d'ambiguïté avec une autre expression :</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
@@ -1189,7 +1218,8 @@ Autre particularité des tuples, il est possible d'en créer de nouveaux sans le
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-<p>Toutefois, nous vous conseillons d'utiliser systématiquement les parenthèses afin d'éviter les confusions.</p>
+Toutefois, nous vous conseillons d'utiliser systématiquement les parenthèses afin d'éviter  les confusions.</p>
+</div>
 <p>Enfin, on peut utiliser la fonction tuple(sequence) qui fonctionne exactement comme la fonction <code>list()</code>, c'est-à-dire qu'elle prend en argument un objet séquentiel et renvoie le <strong>tuple</strong> correspondant (opération de casting) :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1202,8 +1232,8 @@ Autre particularité des tuples, il est possible d'en créer de nouveaux sans le
 </td></tr></table>
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
+<p>Les <strong>listes</strong>, les <strong>dictionnaires</strong> et les <strong>tuples</strong> sont des objets qui peuvent     contenir des collections d'autres objets. On peut donc construire des listes qui    contiennent des <strong>dictionnaires</strong>, des <strong>tuples</strong> ou d'autres <strong>listes</strong>, mais aussi des    <strong>dictionnaires</strong> contenant des <strong>tuples</strong>, des <strong>listes</strong>, etc.</p>
 </div>
-<p>Les <strong>listes</strong>, les <strong>dictionnaires</strong> et les <strong>tuples</strong> sont des objets qui peuvent contenir des collections d'autres objets. On peut donc construire des listes qui contiennent des <strong>dictionnaires</strong>, des <strong>tuples</strong> ou d'autres <strong>listes</strong>, mais aussi des <strong>dictionnaires</strong> contenant des <strong>tuples</strong>, des <strong>listes</strong>, etc.</p>
 <h3 id="iterations-sur-plusieurs-valeurs-a-la-fois">Itérations sur plusieurs valeurs à la fois</h3>
 <p>Pratiquement, nous avons déjà croisé les <strong>tuples</strong> avec la fonction <code>enumerate()</code> dans le chapitre 5 Boucles et comparaisons. Cette dernière permettait d'itérer en même temps sur les indices et les éléments d'une liste :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1283,10 +1313,10 @@ Autre particularité des tuples, il est possible d'en créer de nouveaux sans le
 On voit que cette syntaxe correspond à un tuple de chaque côté de l'opérateur <code>=</code>. Notez qu'il serait possible de le faire également avec les listes : <code>[x, y, z] = [1, 2, 3]</code>. Toutefois, cette syntaxe est alourdie par la présence des crochets. On préfèrera donc la première syntaxe avec les <strong>tuples</strong> sans parenthèse.</p>
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
+<p>Nous avons appelé l'opération <code>x, y, z = 1, 2, 3</code> affectation multiple pour signifier que   l'on affectait des valeurs à plusieurs variables en même temps.<br />
+Toutefois, vous pourrez rencontrer aussi l'expression <em>tuple unpacking</em> que l'on pourrait   traduire par « <em>désempaquetage de tuple</em> ».<br />
+Cela signifie que l'on décompose le tuple initial <code>1, 2, 3</code> en 3 variables différentes  (comme si on vidait son sac à dos, d'où le terme désempaquetage !).</p>
 </div>
-<p>Nous avons appelé l'opération <code>x, y, z = 1, 2, 3</code> affectation multiple pour signifier que l'on affectait des valeurs à plusieurs variables en même temps.<br />
-Toutefois, vous pourrez rencontrer aussi l'expression <em>tuple unpacking</em> que l'on pourrait traduire par « <em>désempaquetage de tuple</em> ».<br />
-Cela signifie que l'on décompose le tuple initial <code>1, 2, 3</code> en 3 variables différentes (comme si on vidait son sac à dos, d'où le terme désempaquetage !).</p>
 <p>Nous avions croisé l'importance de l'affectation multiple dans le chapitre 9 Fonctions lorsqu'une fonction renvoyait plusieurs valeurs.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1319,8 +1349,8 @@ Cela signifie que l'on décompose le tuple initial <code>1, 2, 3</code> en 3 var
 </td></tr></table>
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
+<p>Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la  forme <code>x, y = fct()</code> qui sera privilégiée.</p>
 </div>
-<p>Lorsqu'une fonction renvoie plusieurs valeurs sous forme de tuple, ce sera bien sûr la forme <code>x, y = fct()</code> qui sera privilégiée.</p>
 <p>Quand une fonction renvoie plusieurs valeurs mais que l'on ne souhaite pas les utiliser toutes dans la suite du code, on peut utiliser le nom de variable <code>_</code> (underscore) pour indiquer que certaines valeurs ne nous intéressent pas :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1342,8 +1372,8 @@ Cela signifie que l'on décompose le tuple initial <code>1, 2, 3</code> en 3 var
 <p>Cela envoie le message à celui qui lit le code « <em>je me fiche des valeurs récupérées dans ces variables</em> <code>_</code> ». Notez que l'on peut utiliser une ou plusieurs variables underscores(s). Dans l'exemple ci-dessus, la 2ème et la 4ème variable renvoyées par la fonction seront ignorées dans la suite du code. Cela a le mérite d'éviter la création de variables dont on ne se sert pas.</p>
 <div class="admonition note">
 <p class="admonition-title">Remarque</p>
+<p>La variable <code>_</code> a une autre signication spéciale dans l'interpréteur interactif, elle   prend automatiquement la dernière valeur affichée :</p>
 </div>
-<p>La variable <code>_</code> a une autre signication spéciale dans l'interpréteur interactif, elle prend automatiquement la dernière valeur affichée :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1362,12 +1392,10 @@ Cela signifie que l'on décompose le tuple initial <code>1, 2, 3</code> en 3 var
 </code></pre></div>
 </td></tr></table>
 <p>Attention, cela n'est vrai que dans l'interpréteur.</p>
-<div class="admonition note">
+<div class="admonition tip">
 <p class="admonition-title">Conseils</p>
+<p>Le underscore est couramment utilisé dans les noms de variable pour séparer les mots et     être explicite, par exemple seq_ADN ou liste_listes_residus. On verra dans le chapitre 15   Bonnes pratiques en programmation Python que ce style de nommage est appelé snake_case.     Toutefois, il faut éviter d'utiliser les underscores en début et/ou en fin de nom de    variable (e.g. <code>_var</code>, <code>var_</code>, <code>__var</code>, <code>__var__</code>). On verra au chapitre 19 Avoir la    classe avec les objets que ces underscores ont une signification particulière.</p>
 </div>
-<blockquote>
-<p>Le underscore est couramment utilisé dans les noms de variable pour séparer les mots et être explicite, par exemple seq_ADN ou liste_listes_residus. On verra dans le chapitre 15 Bonnes pratiques en programmation Python que ce style de nommage est appelé snake_case. Toutefois, il faut éviter d'utiliser les underscores en début et/ou en fin de nom de variable (e.g. <code>_var</code>, <code>var_</code>, <code>__var</code>, <code>__var__</code>). On verra au chapitre 19 Avoir la classe avec les objets que ces underscores ont une signification particulière.</p>
-</blockquote>
 <h2 id="sets">Sets</h2>
 <p>Les containers de type set représentent un autre type d'objet séquentiel qui peut se révéler très pratique. Ils ont la particularité d'être non modifiables, non ordonnés et de ne contenir qu'une seule copie maximum de chaque élément. Pour créer un nouveau set on peut utiliser les accolades :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1478,15 +1506,15 @@ Cela signifie que l'on décompose le tuple initial <code>1, 2, 3</code> en 3 var
 <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<blockquote>
-<p>Conseil :<br />
-Pour aller plus loin, vous pouvez consulter deux articles sur les sites programiz et towardsdatascience.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Conseil</p>
+<p>Pour aller plus loin, vous pouvez consulter deux articles sur les sites programiz et    towardsdatascience.</p>
+</div>
 <h3 id="dictionnaires-et-sets-de-comprehension">Dictionnaires et sets de compréhension</h3>
-<blockquote>
-<p>Conseil :<br />
-pour les débutants, vous pouvez passer cette rubrique.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Conseil</p>
+<p>pour les débutants, vous pouvez passer cette rubrique.</p>
+</div>
 <p>Nous avons vu au chapitre 11 Plus sur les listes les listes de compréhension. Il est également possible de générer des dictionnaires de compréhension :</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1525,9 +1553,10 @@ pour les débutants, vous pouvez passer cette rubrique.</p>
 </code></pre></div>
 </td></tr></table>
 <h3 id="module-collections">Module collections</h3>
-<blockquote>
-<p>Conseil : pour les débutants, vous pouvez passer cette rubrique.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Conseil</p>
+<p>pour les débutants, vous pouvez passer cette rubrique.</p>
+</div>
 <p>Le module collections contient d'autres types de containers qui peuvent se révéler utiles, c'est une véritable mine d'or ! Nous n'aborderons pas tous ces objets ici, mais nous pouvons citer tout de même certains d'entre eux si vous souhaitez aller un peu plus loin :</p>
 <ul>
 <li>les dictionnaires ordonnés qui se comportent comme les dictionnaires classiques mais qui sont ordonnés ;</li>
@@ -1557,7 +1586,7 @@ pour les débutants, vous pouvez passer cette rubrique.</p>
 <span class="mi">0</span>
 </code></pre></div>
 </td></tr></table>
-<p>On voit que Python a automatiquement compté chaque atgc de la chaîne de caractères passée en argument ! Cela crée un objet de type Counterqui se comporte ensuite comme un dictionnaire, à une exception près : si on appelle une clé qui n'existe pas dans l'itérable initiale (comme le n ci-dessus) cela renvoie 0.</p>
+<p>On voit que <em>Python</em> a automatiquement compté chaque atgc de la chaîne de caractères passée en argument ! Cela crée un objet de type <code>Counter</code> qui se comporte ensuite comme un dictionnaire, à une exception près : si on appelle une clé qui n'existe pas dans l'itérable initiale (comme le n ci-dessus) cela renvoie 0.</p>
                 
               
               

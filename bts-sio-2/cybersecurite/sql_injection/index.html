@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
     
       
 
@@ -47,13 +49,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -99,6 +105,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -880,7 +908,9 @@
                 
                 <h1 id="sql-injection">SQL Injection</h1>
 <h2 id="quest-ce-que-linjection-sql-sqli">Qu'est-ce que l'injection SQL (SQLi) ?</h2>
-<p><img alt="Injection SQL illustration 1" src="https://github.com/pluzeaux/bts-sio/blob/main/images/figure_1.png" /></p>
+<figure>
+<p><img alt="Injection SQL illustration 1" src="../images/sql_injection_fig_1.png" width="500" /></p>
+</figure>
 <p>L'injection <em>SQL</em> est une vulnérabilité de sécurité Web qui permet à un attaquant d'interférer avec les requêtes qu'une application effectue sur sa base de données.  </p>
 <p>Il permet généralement à un attaquant de visualiser des données qu'il n'est normalement pas en mesure de récupérer. Cela peut inclure des données appartenant à d'autres utilisateurs ou toute autre donnée à laquelle l'application elle-même est en mesure d'accéder.</p>
 <p>Dans de nombreux cas, un attaquant peut modifier ou supprimer ces données, provoquant des modifications persistantes du contenu ou du comportement de l'application.</p>
@@ -1194,7 +1224,9 @@ carlos~montoya
 <h2 id="injection-sql-de-second-ordre">Injection SQL de second ordre</h2>
 <p>L'injection SQL de premier ordre se produit lorsque l'application prend l'entrée de l'utilisateur à partir d'une requête HTTP et, au cours du traitement de cette requête, incorpore l'entrée dans une requête SQL d'une manière dangereuse.</p>
 <p>Dans l'injection SQL de second ordre (également appelée injection SQL stockée), l'application prend l'entrée de l'utilisateur à partir d'une requête HTTP et la stocke pour une utilisation future. Cela se fait généralement en plaçant l'entrée dans une base de données, mais aucune vulnérabilité ne survient au point où les données sont stockées. Plus tard, lors du traitement d'une requête HTTP différente, l'application récupère les données stockées et les intègre dans une requête SQL de manière non sécurisée.</p>
-<p><img alt="Injection SQL illustration 1" src="https://github.com/pluzeaux/bts-sio/blob/main/images/figure_2.png" /></p>
+<figure>
+<p><img alt="Injection SQL illustration 1" src="../images/sql_injection_fig_2.png" width="500" /></p>
+</figure>
 <p>L'injection SQL de second ordre se produit souvent dans des situations où les développeurs sont conscients des vulnérabilités de l'injection SQL et gèrent ainsi en toute sécurité le placement initial de l'entrée dans la base de données. Lorsque les données sont traitées ultérieurement, elles sont considérées comme sûres, car elles ont été précédemment placées dans la base de données en toute sécurité. À ce stade, les données sont traitées de manière dangereuse, car le développeur les considère à tort comme dignes de confiance.</p>
 <h2 id="facteurs-specifiques-a-la-base-de-donnees">Facteurs spécifiques à la base de données</h2>
 <p>Certaines fonctionnalités de base du langage <em>SQL</em> sont implémentées de la même manière sur les plates-formes de bases de données courantes, et de nombreuses façons de détecter et d'exploiter les vulnérabilités d'injection SQL fonctionnent de manière identique sur différents types de bases de données.</p>

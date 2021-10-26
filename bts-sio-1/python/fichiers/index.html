@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
     
       
 
@@ -47,13 +49,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -99,6 +105,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -386,6 +414,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#note-sur-les-retours-a-la-ligne-sous-unix-et-sous-windows" class="md-nav__link">
+    Note sur les retours à la ligne sous Unix et sous Windows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importance-des-conversions-de-types-avec-les-fichiers" class="md-nav__link">
+    Importance des conversions de types avec les fichiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#du-respect-des-formats-de-donnees-et-de-fichiers" class="md-nav__link">
+    Du respect des formats de données et de fichiers
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -659,6 +708,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#note-sur-les-retours-a-la-ligne-sous-unix-et-sous-windows" class="md-nav__link">
+    Note sur les retours à la ligne sous Unix et sous Windows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importance-des-conversions-de-types-avec-les-fichiers" class="md-nav__link">
+    Importance des conversions de types avec les fichiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#du-respect-des-formats-de-donnees-et-de-fichiers" class="md-nav__link">
+    Du respect des formats de données et de fichiers
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -687,249 +757,316 @@
 </code></pre></div>
 </td></tr></table>
 <p>Ensuite, testez le code suivant dans l'interpréteur <em>Python</em> :</p>
-<p>````python {.line-numbers}</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>filin = open("zoo.txt", "r")
-filin
-&lt;_io.TextIOWrapper name='zoo.txt' mode='r' encoding='UTF-8'&gt;
-filin.readlines()
-['girafe\n', 'tigre\n', 'singe\n', 'souris\n']
-filin.close()
-filin.readlines()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ValueError: I/O operation on closed file.
-````</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">filin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">filin</span>
+<span class="o">&lt;</span><span class="n">_io</span><span class="o">.</span><span class="n">TextIOWrapper</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;zoo.txt&#39;</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">filin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">&#39;girafe</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;tigre</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;singe</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;souris</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">filin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">filin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">I</span><span class="o">/</span><span class="n">O</span> <span class="n">operation</span> <span class="n">on</span> <span class="n">closed</span> <span class="n">file</span><span class="o">.</span>
+</code></pre></div>
+</td></tr></table>
 <p>Il y a plusieurs commentaires à faire sur cet exemple :</p>
-<p>Ligne 1.<br />
-L'instruction <code>open()</code> ouvre le fichier <code>zoo.txt</code>. Ce fichier est ouvert en lecture seule, comme l'indique le second argument <code>r</code> (pour <em>read</em>) de la fonction <code>open()</code>.<br />
+<blockquote>
+<p><strong>Ligne 1</strong><br />
+L'instruction <code>open()</code> ouvre le fichier <code>zoo.txt</code>. Ce fichier est ouvert en lecture seule, &gt; comme l'indique le second argument <code>r</code> (pour <em>read</em>) de la fonction <code>open()</code>.<br />
 Remarquez que le fichier n'est pas encore lu, mais simplement ouvert (un peu comme lorsqu'on ouvre un livre, mais qu'on ne l'a pas encore lu).<br />
 Le curseur de lecture est prêt à lire le premier caractère du fichier. L'instruction <code>open("zoo.txt", "r")</code> suppose que le fichier <code>zoo.txt</code> est dans le répertoire depuis lequel l'interpréteur <em>Python</em> a été lancé.<br />
-Si ce n'est pas le cas, il faut préciser le chemin d'accès au fichier. Par exemple, <code>/home/pierre/zoo.txt</code> pour <em>Linux</em> ou <em>Mac OS X</em> ou <code>C:\Users\pierre\zoo.txt</code> pour <em>Windows</em>.</p>
-<p>Ligne 2.<br />
+Si ce n'est pas le cas, il faut préciser le chemin d'accès au fichier. Par exemple, <code>/home/pierre/zoo.txt</code> pour <em>Linux</em> ou <em>Mac OS X</em> ou <code>C:\Users\pierre\zoo.txt</code> pour <em>Windows</em>.  </p>
+<p><strong>Ligne 2</strong><br />
 Lorsqu'on affiche le contenu de la variable filin, on se rend compte que <em>Python</em> la considère comme un objet de type fichier ouvert (ligne 3).</p>
-<p>Ligne 4.<br />
+<p><strong>Ligne 4</strong><br />
 Nous utilisons à nouveau la syntaxe <code>objet.méthode()</code>. Ici la méthode <code>.readlines()</code> agit sur l'objet <code>filin</code> en déplaçant le curseur de lecture du début à la fin du fichier, puis elle renvoie une liste contenant toutes les lignes du fichier (dans notre analogie avec un livre, ceci correspondrait à lire toutes les lignes du livre).</p>
-<p>Ligne 6.<br />
+<p><strong>Ligne 6</strong><br />
 Enfin, on applique la méthode <code>.close()</code> sur l'objet <code>filin</code>, ce qui, vous vous en doutez, ferme le fichier (ceci correspondrait à fermer le livre). Vous remarquerez que la méthode .close() ne renvoie rien mais modifie l'état de l'objet filin en fichier fermé. Ainsi, si on essaie de lire à nouveau les lignes du fichier, Python renvoie une erreur car il ne peut pas lire un fichier fermé (lignes 7 à 10).</p>
+</blockquote>
 <p>Voici maintenant un exemple complet de lecture d'un fichier avec <em>Python</em>.  </p>
-<p>```python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>filin = open("zoo.txt", "r")
-lignes = filin.readlines()
-lignes
-['girafe\n', 'tigre\n', 'singe\n', 'souris\n']
-for ligne in lignes:
-...     print(ligne)
-...
-girafe</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>tigre</p>
-<p>singe</p>
-<p>souris</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>filin.close()
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">filin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lignes</span> <span class="o">=</span> <span class="n">filin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lignes</span>
+<span class="p">[</span><span class="s1">&#39;girafe</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;tigre</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;singe</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;souris</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lignes</span><span class="p">:</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">girafe</span>
+
+<span class="n">tigre</span>
+
+<span class="n">singe</span>
+
+<span class="n">souris</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">filin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 <p>Vous voyez qu'en cinq lignes de code, vous avez lu, parcouru le fichier et affiché son contenu.  </p>
-<blockquote>
-<p>Remarque</p>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
 <ul>
-<li>Chaque élément de la liste <code>lignes</code> est une chaîne de caractères. C'est en effet sous forme de chaînes de caractères que <em>Python</em> lit le contenu d'un fichier.</li>
-<li>Chaque élément de la liste lignes se termine par le caractère <code>\n</code>. Ce caractère un peu particulier correspond au « saut de ligne » qui permet de passer d'une ligne à la suivante. Ceci est codé par un caractère spécial que l'on représente par <code>\n</code>.</li>
-<li>Par défaut, l'instruction <em>print()</em> affiche quelque chose puis revient à la ligne. Ce retour à la ligne dû à <code>print()</code> se cumule alors avec celui de la fin de ligne (<code>\n</code>) de chaque ligne du fichier et donne l'impression qu'une ligne est sautée à chaque fois.</li>
+<li>Chaque élément de la liste <code>lignes</code> est une chaîne de caractères. C'est en effet sous     forme de chaînes de caractères que <em>Python</em> lit le contenu d'un fichier.</li>
+<li>Chaque élément de la liste lignes se termine par le caractère <code>\n</code>. Ce caractère un peu   particulier correspond au « saut de ligne » qui permet de passer d'une ligne à la suivante.     Ceci est codé par un caractère spécial que l'on représente par <code>\n</code>.</li>
+<li>Par défaut, l'instruction <em>print()</em> affiche quelque chose puis revient à la ligne. Ce     retour à la ligne dû à <code>print()</code> se cumule alors avec celui de la fin de ligne (<code>\n</code>) de    chaque ligne du fichier et donne l'impression qu'une ligne est sautée à chaque fois.</li>
 </ul>
-</blockquote>
+</div>
 <p>Il existe en <em>Python</em> le mot-clé <code>with</code> qui permet d'ouvrir et de fermer un fichier de manière efficace. Si pour une raison ou une autre l'ouverture ou la lecture du fichier conduit à une erreur, l'utilisation de <code>with</code> garantit la bonne fermeture du fichier, ce qui n'est pas le cas dans le code précédent. Voici donc le même exemple avec <code>with</code> :</p>
-<p>```python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>with open("zoo.txt", 'r') as filin:
-...     lignes = filin.readlines()
-...     for ligne in lignes:
-...         print(ligne)
-...
-girafe</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>tigre</p>
-<p>singe</p>
-<p>souris</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>```</p>
-</blockquote>
-</blockquote>
-<p>Remarque</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filin</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">lignes</span> <span class="o">=</span> <span class="n">filin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="o">...</span>     <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lignes</span><span class="p">:</span>
+<span class="o">...</span>         <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">girafe</span>
+
+<span class="n">tigre</span>
+
+<span class="n">singe</span>
+
+<span class="n">souris</span>
+
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
 <ul>
-<li>L'instruction <code>with</code> introduit un bloc d'indentation. C'est à l'intérieur de ce bloc que nous effectuons toutes les opérations sur le fichier.</li>
-<li>Une fois sorti du bloc d'indentation, <em>Python</em> fermera automatiquement le fichier. Vous n'avez donc plus besoin d’utiliser la méthode <code>.close()</code>.</li>
+<li>L'instruction <code>with</code> introduit un bloc d'indentation. C'est à l'intérieur de ce bloc que  nous effectuons toutes les opérations sur le fichier.</li>
+<li>Une fois sorti du bloc d'indentation, <em>Python</em> fermera automatiquement le fichier. Vous   n'avez donc plus besoin d’utiliser la méthode <code>.close()</code>.</li>
 </ul>
-</blockquote>
+</div>
 <h3 id="methode-read">Méthode <code>.read()</code></h3>
 <p>Il existe d'autres méthodes que <code>.readlines()</code> pour lire (et manipuler) un fichier. Par exemple, la méthode <code>.read()</code> lit tout le contenu d'un fichier et renvoie une chaîne de caractères unique.</p>
-<p>```python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>with open("zoo.txt", "r") as filin:
-...     filin.read()
-...
-'girafe\ntigre\nsinge\nsouris\n'</p>
-<p>```</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filin</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">filin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="s1">&#39;girafe</span><span class="se">\n</span><span class="s1">tigre</span><span class="se">\n</span><span class="s1">singe</span><span class="se">\n</span><span class="s1">souris</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div>
+</td></tr></table>
 <h3 id="methode-readline">Méthode <code>.readline()</code></h3>
 <p>La méthode <code>.readline()</code> (sans s à la fin) lit une ligne d'un fichier et la renvoie sous forme de chaîne de caractères. À chaque nouvel appel de <code>.readline()</code>, la ligne suivante est renvoyée. Associée à la boucle <code>while</code>, cette méthode permet de lire un fichier ligne par ligne.</p>
-<p>```python   </p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>with open("zoo.txt", "r") as filin:
-...     ligne = filin.readline()
-...     while ligne != "":
-...         print(ligne)
-...         ligne = filin.readline()
-...
-girafe</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>tigre</p>
-<p>singe</p>
-<p>souris</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>```</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filin</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">ligne</span> <span class="o">=</span> <span class="n">filin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="o">...</span>     <span class="k">while</span> <span class="n">ligne</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+<span class="o">...</span>         <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+<span class="o">...</span>         <span class="n">ligne</span> <span class="o">=</span> <span class="n">filin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="n">girafe</span>
+
+<span class="n">tigre</span>
+
+<span class="n">singe</span>
+
+<span class="n">souris</span>
+
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div>
+</td></tr></table>
 <h3 id="iterations-directe-sur-le-fichier">Itérations directe sur le fichier</h3>
 <p><em>Python</em> essaie de vous faciliter la vie au maximum. Voici un moyen à la fois simple et élégant de parcourir un fichier.</p>
-<p>```python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>with open("zoo.txt", "r") as filin:
-...     for ligne in filin:
-...         print(ligne)
-...
-girafe</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>tigre</p>
-<p>singe</p>
-<p>souris</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>```</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filin</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">filin</span><span class="p">:</span>
+<span class="o">...</span>         <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">girafe</span>
+
+<span class="n">tigre</span>
+
+<span class="n">singe</span>
+
+<span class="n">souris</span>
+
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div>
+</td></tr></table>
 <p>L'objet <code>filin</code> est « itérable », ainsi la boucle <code>for</code> va demander à <em>Python</em> d'aller lire le fichier ligne par ligne.</p>
-<blockquote>
-<p>Conseils</p>
+<div class="admonition tip">
+<p class="admonition-title">Conseils</p>
 <p>Privilégiez cette méthode par la suite.</p>
-<p>Remarque</p>
-<p>Les méthodes abordées précédemment permettent d'accéder au contenu d'un fichier, soit ligne par ligne (méthode <code>.readline()</code>), soit globalement en une seule chaîne de caractères (méthode <code>.read()</code>), soit globalement avec les lignes différenciées sous forme d'une liste de chaînes de caractères (méthode <code>.readlines()</code>). Il est également possible en <em>Python</em> de se rendre à un endroit particulier d'un fichier avec la méthode <code>.seek()</code> mais qui sort du cadre de cet ouvrage.</p>
-</blockquote>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Remarque</p>
+<p>Les méthodes abordées précédemment permettent d'accéder au contenu d'un fichier, soit ligne     par ligne (méthode <code>.readline()</code>), soit globalement en une seule chaîne de caractères   (méthode <code>.read()</code>), soit globalement avec les lignes différenciées sous forme d'une liste  de chaînes de caractères (méthode <code>.readlines()</code>). Il est également possible en <em>Python</em> de     se rendre à un endroit particulier d'un fichier avec la méthode <code>.seek()</code> mais qui sort du  cadre de cet ouvrage.</p>
+</div>
 <h2 id="ecriture-dans-un-fichier">Écriture dans un fichier</h2>
 <p>Écrire dans un fichier est aussi simple que de le lire. Voyez l'exemple suivant :</p>
-<p>```python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>animaux2 = ["poisson", "abeille", "chat"]
-with open("zoo2.txt", "w") as filout:
-...     for animal in animaux2:
-...         filout.write(animal)
-...
-7
-7
-4
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">animaux2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;poisson&quot;</span><span class="p">,</span> <span class="s2">&quot;abeille&quot;</span><span class="p">,</span> <span class="s2">&quot;chat&quot;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo2.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filout</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">animaux2</span><span class="p">:</span>
+<span class="o">...</span>         <span class="n">filout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="mi">7</span>
+<span class="mi">7</span>
+<span class="mi">4</span>
+</code></pre></div>
+</td></tr></table>
 <p>Quelques commentaires sur cet exemple :</p>
-<p>Ligne 1.<br />
+<blockquote>
+<p><strong>Ligne 1</strong><br />
 Création d'une liste de chaînes de caractères <code>animaux2</code>.</p>
-<p>Ligne 2.<br />
+<p><strong>Ligne 2</strong><br />
 Ouverture du fichier <code>zoo2.txt</code> en mode écriture, avec le caractère <code>w</code> pour <em>write</em>. L'instruction with crée un bloc d'instructions qui doit être indenté.</p>
-<p>Ligne 3.<br />
+<p><strong>Ligne 3</strong><br />
 Parcours de la liste <code>animaux2</code> avec une boucle <code>for</code>.</p>
-<p>Ligne 4.<br />
+<p><strong>Ligne 4</strong><br />
 À chaque itération de la boucle, nous avons écrit chaque élément de la liste dans le fichier. La méthode <code>.write()</code> s'applique sur l'objet <code>filout</code>. Notez qu'à chaque utilisation de la méthode <code>.write()</code>, celle-ci nous affiche le nombre d'octets (équivalent au nombre de caractères) écrits dans le fichier (lignes 6 à 8). Ceci est valable uniquement dans l'interpréteur, si vous créez un programme avec les mêmes lignes de code, ces valeurs ne s'afficheront pas à l'écran.</p>
+</blockquote>
 <p>Si nous ouvrons le fichier <code>zoo2.txt</code> avec un éditeur de texte, voici ce que nous obtenons :</p>
 <p><code>poissonabeillechat</code></p>
 <p>Ce n'est pas exactement le résultat attendu car implicitement nous voulions le nom de chaque animal sur une ligne. Nous avons oublié d'ajouter le caractère fin de ligne après chaque nom d'animal.</p>
 <p>Pour ce faire, nous pouvons utiliser l'écriture formatée :</p>
-<p>```python</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">animaux2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;poisson&quot;</span><span class="p">,</span> <span class="s2">&quot;abeille&quot;</span><span class="p">,</span> <span class="s2">&quot;chat&quot;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo2.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filout</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">animaux2</span><span class="p">:</span>
+<span class="o">...</span>         <span class="n">filout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">animal</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="mi">8</span>
+<span class="mi">8</span>
+<span class="mi">5</span>
+</code></pre></div>
+</td></tr></table>
 <blockquote>
-<blockquote>
-<blockquote>
-<p>animaux2 = ["poisson", "abeille", "chat"]
-with open("zoo2.txt", "w") as filout:
-...     for animal in animaux2:
-...         filout.write(f"{animal}\n")
-...
-8
-8
-5
-```</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Ligne 4.<br />
+<p><strong>Ligne 4</strong><br />
 L'écriture formatée permet d'ajouter un retour à la ligne (<code>\n</code>) après le nom de chaque animal.</p>
-<p>Lignes 6 à 8.<br />
+<p><strong>Lignes 6 à 8</strong> <br />
 Le nombre d'octets écrits dans le fichier est augmenté de 1 par rapport à l'exemple précédent car le caractère retour à la ligne compte pour un seul octet.</p>
+</blockquote>
 <p>Le contenu du fichier <code>zoo2.txt</code> est alors :</p>
-<p><code>python
-poisson
-abeille
-chat</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">poisson</span>
+<span class="n">abeille</span>
+<span class="n">chat</span>
+</code></pre></div>
+</td></tr></table>
 <p>Vous voyez qu'il est extrêmement simple en <em>Python</em> de lire ou d'écrire dans un fichier.</p>
 <h3 id="ouvrir-deux-fichiers-avec-linstruction-with">Ouvrir deux fichiers avec l'instruction <code>with</code></h3>
 <p>On peut avec l'instruction <code>with</code> ouvrir deux fichiers (ou plus) en même temps. Voyez l'exemple suivant :</p>
-<p><code>python
-with open("zoo.txt", "r") as fichier1, open("zoo2.txt", "w") as fichier2:
-    for ligne in fichier1:
-        fichier2.write("* " + ligne)</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichier1</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;zoo2.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichier2</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">fichier1</span><span class="p">:</span>
+        <span class="n">fichier2</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;* &quot;</span> <span class="o">+</span> <span class="n">ligne</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
 <p>Si le fichier <code>zoo.txt</code> contient le texte suivant :</p>
-<p><code>python
-souris
-girafe
-lion
-singe</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">souris</span>
+<span class="n">girafe</span>
+<span class="n">lion</span>
+<span class="n">singe</span>
+</code></pre></div>
+</td></tr></table>
 <p>alors le contenu de zoo2.txt sera :</p>
-<p><code>python
-* souris
-* girafe
-* lion
-* singe</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">*</span> <span class="n">souris</span>
+<span class="o">*</span> <span class="n">girafe</span>
+<span class="o">*</span> <span class="n">lion</span>
+<span class="o">*</span> <span class="n">singe</span>
+</code></pre></div>
+</td></tr></table>
 <p>Dans cet exemple, <code>with</code> permet une notation très compacte en s'affranchissant de deux méthodes <code>.close()</code>.</p>
 <p>Sachez que l'instruction with est plus générale et est utilisable dans d'autres contextes.</p>
+<h2 id="note-sur-les-retours-a-la-ligne-sous-unix-et-sous-windows">Note sur les retours à la ligne sous Unix et sous Windows</h2>
+<div class="admonition tip">
+<p class="admonition-title">Conseil</p>
+<p>si vous êtes débutant, vous pouvez sauter cette rubrique.</p>
+</div>
+<p>On a vu plus haut que le caractère spécial <code>\n</code> correspondait à un retour à la ligne. C'est le standard sous <em>Unix</em> (<em>Mac OS X</em> et <em>Linux</em>).</p>
+<p>Toutefois, <em>Windows</em> utilise deux caractères spéciaux pour le retour à la ligne : <code>\r</code> correspondant à un retour chariot (hérité des machines à écrire) et <code>\n</code> comme sous Unix.</p>
+<p>Si vous avez commencé à programmer en <em>Python 2</em>, vous aurez peut-être remarqué que selon les versions, la lecture de fichier supprimait parfois les <code>\r</code> et d'autres fois les laissait. Heureusement, la fonction <code>open()</code> dans <em>Python 3</em> gère tout ça automatiquement et renvoie uniquement des sauts de ligne sous forme d'un seul <code>\n</code> (même si le fichier a été conçu sous Windows et qu'il contient initialement des <code>\r</code>).</p>
+<h2 id="importance-des-conversions-de-types-avec-les-fichiers">Importance des conversions de types avec les fichiers</h2>
+<p>Vous avez sans doute remarqué que les méthodes qui lisent un fichier (par exemple <code>.readlines()</code>) vous renvoient systématiquement des chaînes de caractères. De même, pour écrire dans un fichier il faut fournir une chaîne de caractères à la méthode <code>.write()</code>.</p>
+<p>Pour tenir compte de ces contraintes, il faudra utiliser les fonctions de conversions de types vues au chapitre 2 Variables : <code>int()</code>, <code>float()</code> et <code>str()</code>. Ces fonctions de conversion sont essentielles lorsqu'on lit ou écrit des nombres dans un fichier.</p>
+<p>En effet, les nombres dans un fichier sont considérés comme du texte, donc comme des chaînes de caractères, par la méthode <code>.readlines()</code>. Par conséquent, il faut les convertir (en entier ou en float) si on veut effectuer des opérations numériques avec.</p>
+<h2 id="du-respect-des-formats-de-donnees-et-de-fichiers">Du respect des formats de données et de fichiers</h2>
+<p>Maintenant que vous savez lire et écrire des fichiers en <em>Python</em>, vous êtes capables de manipuler beaucoup d'information en biologie. Prenez garde cependant aux formats de fichiers, c'est-à-dire à la manière dont est stockée l'information biologique dans des fichiers. Nous vous renvoyons pour cela à l'<strong><em>annexe A</em></strong> Quelques formats de données rencontrés en biologie.</p>
                 
               
               

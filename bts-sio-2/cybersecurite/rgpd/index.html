@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
     
       
 
@@ -47,13 +49,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -99,6 +105,28 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -594,7 +622,7 @@
                 
                 <h1 id="quest-ce-que-le-rgpd">Qu'est-ce que le RGPD ?</h1>
 <p>Le <strong>règlement général sur la protection des données</strong> ou <strong>RGPD</strong> remplace l'ensemble de la législation sur les données nominatives issue de la loi de 1978.</p>
-<p>Le RGPD, c’est avant tout une <strong>démarche</strong> à suivre.</p>
+<p>Le <strong>RGPD</strong>, c’est avant tout une <strong>démarche</strong> à suivre.</p>
 <p>Voici les quelques axes principaux :</p>
 <ul>
 <li>
@@ -618,18 +646,19 @@
 </ul>
 <p>L’utilisation digitale du marketing pose à chaque fois la question des données personnelles. C’est le cas des statistiques ou du profilage des internautes.</p>
 <p>Sans revenir en détail sur l'intégralité de cette règle, il convient de comprendre son fonctionnement et son impact pour la création et l'utilisation de supports marketing ou de communication.</p>
-<h2 id="la-rdgp-et-laccountability">La RDGP et l’accountability</h2>
+<h2 id="la-rdgp-et-laccountability">La <strong><em>RDGP</em></strong> et l’<em>accountability</em></h2>
 <p>Contrairement aux dispositions précédentes, le règlement général sur la protection des données supprime les obligations de déclaration préalable et met en responsabilité chaque annonceur.</p>
-<blockquote>
-<p>Note
-En un mot, vous devez y penser avant de commencer votre projet.<br />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En un mot, vous devez y penser avant de commencer votre projet.<br />
 Vous ne déclarez plus rien mais êtes responsable de votre action. </p>
-</blockquote>
+</div>
 <p>Le cadre de l'application du RGPD n'est plus déclaratif, mais il vous appartient de rapporter la preuve de la conformité de la gestion des données personnelles et de la sécurité de celles-ci. En cas de contrôle des autorités, il vous faudra justifier de ces points de façon documentée.</p>
 <p>C’est ce que la CNIL appelle l’<strong>accountability</strong>.</p>
-<blockquote>
-<p>Selon elle, c’est « l’obligation pour les entreprises de mettre en œuvre des mécanismes et des procédures internes permettant de démontrer le respect des règles relatives à la protection des données. »</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Définition</p>
+<p>Selon elle, c’est « l’obligation pour les entreprises de mettre en œuvre des mécanismes     et  des procédures internes permettant de démontrer le respect des règles relatives à la    protection des données. »</p>
+</div>
 <h2 id="quels-sont-ces-mecanismes-et-procedures">Quels sont ces mécanismes et procédures ?</h2>
 <p>Vous pourrez alors trouver dans la loi, qu’il « est impératif de désigner un pilote et d'assurer :</p>
 <ul>
@@ -649,15 +678,15 @@ Vous ne déclarez plus rien mais êtes responsable de votre action. </p>
 <p>la définition du <strong>risque</strong></p>
 </li>
 <li>
-<p>et <strong>documenter</strong> l'ensemble des mesures de mise en conformité au RGPD que vous avez effectuées. »</p>
+<p>et <strong>documenter</strong> l'ensemble des mesures de mise en conformité au <strong><em>RGPD</em></strong> que vous avez effectuées. »</p>
 </li>
 </ul>
 <p><em>Articles 24 et 30 règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016, modifiés par Rectificatif au règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016 relatif à la protection des personnes physiques à l’égard du traitement des données à caractère personnel et à la libre circulation de ces données, et abrogeant la directive 95/46/CE (règlement général sur la protection des données) JOUE L127 2 du 23/05/2018)</em></p>
 <p>Cela peut vous paraître contraignant, mais c’est l’occasion d’une <strong>vérification générale</strong>.</p>
-<blockquote>
-<p>Par où commencer ?</p>
-</blockquote>
-<p>Pour vous aider dans cette démarche, la CNIL fournit les supports et un logiciel gratuit (PIA) pour analyser votre projet. Consultez le <img alt="site de la CNIL sur le RGPD" src="https://www.cnil.fr/fr/rgpd-en-pratique" />.</p>
+<div class="admonition question">
+<p class="admonition-title">Par où commencer ?</p>
+<p>Pour vous aider dans cette démarche, la <strong><em>CNIL</em></strong> fournit les supports et un logiciel gratuit  (<strong><em>PIA</em></strong>) pour analyser votre projet. Consultez le ![site de la <strong><em>CNIL</em></strong> sur le     <strong><em>RGPD</em></strong>] <a href="https://  www.cnil.fr/fr/rgpd-en-pratique">Le RGPD en pratique</a>.</p>
+</div>
 <h2 id="decouvrez-la-notion-de-privacy-by-design">Découvrez la notion de "Privacy by design"</h2>
                 
               
